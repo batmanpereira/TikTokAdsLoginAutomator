@@ -61,3 +61,24 @@
 2024-11-09 09:33:02,131 - INFO - [ads_power.py:103] - Checking AdsPower connection status...
 2024-11-09 09:33:02,133 - ERROR - [ads_power.py:107] - AdsPower port check failed - service might not be running
 2024-11-09 09:33:02,134 - ERROR - [main.py:97] - AdsPower is not running or not accessible. Please start AdsPower and try again.
+2024-11-09 09:39:53,711 - INFO - [utils.py:21] - Logging system initialized
+2024-11-09 09:39:53,711 - DEBUG - [utils.py:22] - Log level set to: DEBUG
+2024-11-09 09:39:53,711 - DEBUG - [utils.py:23] - Log file: tiktok_login.log
+2024-11-09 09:39:53,711 - INFO - [main.py:90] - Starting TikTok Ads login automation
+2024-11-09 09:39:53,712 - INFO - [ads_power.py:103] - Checking AdsPower connection status...
+2024-11-09 09:39:53,727 - ERROR - [ads_power.py:107] - AdsPower port check failed - service might not be running
+2024-11-09 09:39:53,727 - ERROR - [main.py:97] - AdsPower is not running or not accessible. Please start AdsPower and try again.
+2024-11-09 09:40:06,394 - INFO - [utils.py:21] - Logging system initialized
+2024-11-09 09:40:06,394 - DEBUG - [utils.py:22] - Log level set to: DEBUG
+2024-11-09 09:40:06,394 - DEBUG - [utils.py:23] - Log file: tiktok_login.log
+2024-11-09 09:40:06,394 - INFO - [main.py:90] - Starting TikTok Ads login automation
+2024-11-09 09:40:06,394 - INFO - [ads_power.py:103] - Checking AdsPower connection status...
+2024-11-09 09:40:06,399 - ERROR - [ads_power.py:107] - AdsPower port check failed - service might not be running
+2024-11-09 09:40:06,399 - ERROR - [main.py:97] - AdsPower is not running or not accessible. Please start AdsPower and try again.
+2024-11-09 09:46:02,083 - INFO - [utils.py:21] - Logging system initialized
+2024-11-09 09:46:02,088 - DEBUG - [utils.py:22] - Log level set to: DEBUG
+2024-11-09 09:46:02,088 - DEBUG - [utils.py:23] - Log file: tiktok_login.log
+2024-11-09 09:46:02,088 - INFO - [main.py:90] - Starting TikTok Ads login automation
+2024-11-09 09:46:02,088 - INFO - [ads_power.py:104] - Checking AdsPower connection status...
+2024-11-09 09:46:02,103 - ERROR - [ads_power.py:108] - AdsPower port check failed - service might not be running
+2024-11-09 09:46:02,104 - ERROR - [main.py:97] - AdsPower is not running or not accessible. Please start AdsPower and try again.

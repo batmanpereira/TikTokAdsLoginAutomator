@@ -3,7 +3,8 @@ import os
 
 # AdsPower API configuration
 ADSPOWER_LOCAL_URL = "http://local.adspower.net:50325"
-ADSPOWER_API_URL = "https://959a-2804-58e8-4080-4500-5d27-c43c-e909-bd34.ngrok-free.app"
+ADSPOWER_API_URL = "http://local.adspower.net:50325"  # Using local URL
+CLI_CREDENTIAL = "f96e3db4f589b15d0b7f37ed4a884aec"
 
 ADSPOWER_CREATE_PROFILE = "/api/v1/profile/create"
 ADSPOWER_OPEN_URL = "/api/v1/browser/start"
