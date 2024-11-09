@@ -37,8 +37,9 @@ EMAIL_SEARCH_TIMEOUT = 60
 EMAIL_CHECK_INTERVAL = 5
 
 # Logging configuration
-LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
+LOG_FORMAT = '%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s'
 LOG_FILE = 'tiktok_login.log'
+LOG_LEVEL = 'DEBUG'  # Changed to DEBUG for more detailed logging
 
 # Output files
 PROFILE_IDS_FILE = 'profile_ids.txt'
