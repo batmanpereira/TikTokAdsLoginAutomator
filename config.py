@@ -1,16 +1,9 @@
 """Configuration settings for the TikTok Ads login automation."""
 import os
-from pyngrok import ngrok
 
 # AdsPower API configuration
 ADSPOWER_LOCAL_URL = "http://local.adspower.net:50325"
-# Create ngrok tunnel for AdsPower API
-try:
-    tunnel = ngrok.connect(50325, "http")
-    ADSPOWER_API_URL = tunnel.public_url
-except Exception as e:
-    # Fallback to local URL if ngrok fails
-    ADSPOWER_API_URL = ADSPOWER_LOCAL_URL
+ADSPOWER_API_URL = "https://959a-2804-58e8-4080-4500-5d27-c43c-e909-bd34.ngrok-free.app"
 
 ADSPOWER_CREATE_PROFILE = "/api/v1/profile/create"
 ADSPOWER_OPEN_URL = "/api/v1/browser/start"
