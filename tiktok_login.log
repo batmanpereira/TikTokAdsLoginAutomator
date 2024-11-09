@@ -40,3 +40,17 @@
 2024-11-09 08:43:21,988 - INFO - [ads_power.py:99] - Checking AdsPower connection status...
 2024-11-09 08:43:21,990 - ERROR - [ads_power.py:103] - AdsPower port check failed - service might not be running
 2024-11-09 08:43:21,990 - ERROR - [main.py:97] - AdsPower is not running or not accessible. Please start AdsPower and try again.
+2024-11-09 09:05:21,116 - INFO - [utils.py:21] - Logging system initialized
+2024-11-09 09:05:21,117 - DEBUG - [utils.py:22] - Log level set to: DEBUG
+2024-11-09 09:05:21,117 - DEBUG - [utils.py:23] - Log file: tiktok_login.log
+2024-11-09 09:05:21,117 - INFO - [main.py:90] - Starting TikTok Ads login automation
+2024-11-09 09:05:21,117 - INFO - [ads_power.py:99] - Checking AdsPower connection status...
+2024-11-09 09:05:21,132 - ERROR - [ads_power.py:103] - AdsPower port check failed - service might not be running
+2024-11-09 09:05:21,133 - ERROR - [main.py:97] - AdsPower is not running or not accessible. Please start AdsPower and try again.
+2024-11-09 09:06:10,460 - INFO - [utils.py:21] - Logging system initialized
+2024-11-09 09:06:10,463 - DEBUG - [utils.py:22] - Log level set to: DEBUG
+2024-11-09 09:06:10,464 - DEBUG - [utils.py:23] - Log file: tiktok_login.log
+2024-11-09 09:06:10,465 - INFO - [main.py:90] - Starting TikTok Ads login automation
+2024-11-09 09:06:10,466 - INFO - [ads_power.py:103] - Checking AdsPower connection status...
+2024-11-09 09:06:10,497 - ERROR - [ads_power.py:107] - AdsPower port check failed - service might not be running
+2024-11-09 09:06:10,498 - ERROR - [main.py:97] - AdsPower is not running or not accessible. Please start AdsPower and try again.

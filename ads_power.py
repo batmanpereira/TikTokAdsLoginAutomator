@@ -6,7 +6,7 @@ import socket
 import json
 from urllib.parse import urljoin
 from config import (
-    ADSPOWER_API_URL, ADSPOWER_CREATE_PROFILE,
+    ADSPOWER_API_URL, ADSPOWER_LOCAL_URL, ADSPOWER_CREATE_PROFILE,
     ADSPOWER_OPEN_URL, ADSPOWER_CLOSE_URL,
     ADSPOWER_TIMEOUT, MAX_RETRIES, RETRY_DELAY
 )
@@ -14,6 +14,7 @@ from config import (
 class AdsPowerAPI:
     def __init__(self):
         self.base_url = ADSPOWER_API_URL
+        self.local_url = ADSPOWER_LOCAL_URL
         self.session = requests.Session()
 
     def _check_port_status(self, host='local.adspower.net', port=50325):
@@ -53,44 +54,47 @@ class AdsPowerAPI:
     def _make_request(self, method, endpoint, **kwargs):
         """Make HTTP request to AdsPower API with retries and enhanced error handling."""
         kwargs.setdefault('timeout', ADSPOWER_TIMEOUT)
-        url = urljoin(self.base_url, endpoint)
 
-        # Log request details
-        self._log_request_details(method, url, **kwargs)
+        # Try ngrok URL first, fallback to local if it fails
+        urls_to_try = [self.base_url, self.local_url]
         
-        for attempt in range(MAX_RETRIES):
-            try:
-                # Check port status before making request
-                if not self._check_port_status():
-                    logging.error(f"AdsPower port is not accessible (attempt {attempt + 1}/{MAX_RETRIES})")
-                    if attempt < MAX_RETRIES - 1:
-                        time.sleep(RETRY_DELAY * (attempt + 1))
-                        continue
-                    raise ConnectionError("AdsPower service port is not accessible")
-
-                # Make the request
-                response = self.session.request(method, url, **kwargs)
-                
-                # Log response details
-                self._log_response_details(response)
-
-                if response.status_code == 200:
-                    return response.json()
-                else:
-                    logging.error(f"Request failed with status code {response.status_code}")
-                    logging.error(f"Response content: {response.text}")
-                    
-            except requests.exceptions.Timeout:
-                logging.error(f"Request timed out (attempt {attempt + 1}/{MAX_RETRIES})")
-            except requests.exceptions.ConnectionError as e:
-                logging.error(f"Connection error (attempt {attempt + 1}/{MAX_RETRIES}): {str(e)}")
-            except json.JSONDecodeError as e:
-                logging.error(f"Invalid JSON response (attempt {attempt + 1}/{MAX_RETRIES}): {str(e)}")
-            except Exception as e:
-                logging.error(f"Unexpected error (attempt {attempt + 1}/{MAX_RETRIES}): {str(e)}")
+        for base_url in urls_to_try:
+            url = urljoin(base_url, endpoint)
+            self._log_request_details(method, url, **kwargs)
             
-            if attempt < MAX_RETRIES - 1:
-                time.sleep(RETRY_DELAY * (attempt + 1))
+            for attempt in range(MAX_RETRIES):
+                try:
+                    # Check port status before making request
+                    if not self._check_port_status():
+                        logging.error(f"AdsPower port is not accessible (attempt {attempt + 1}/{MAX_RETRIES})")
+                        if attempt < MAX_RETRIES - 1:
+                            time.sleep(RETRY_DELAY * (attempt + 1))
+                            continue
+                        break  # Try next URL if available
+
+                    # Make the request
+                    response = self.session.request(method, url, **kwargs)
+                    
+                    # Log response details
+                    self._log_response_details(response)
+
+                    if response.status_code == 200:
+                        return response.json()
+                    else:
+                        logging.error(f"Request failed with status code {response.status_code}")
+                        logging.error(f"Response content: {response.text}")
+                        
+                except requests.exceptions.Timeout:
+                    logging.error(f"Request timed out (attempt {attempt + 1}/{MAX_RETRIES})")
+                except requests.exceptions.ConnectionError as e:
+                    logging.error(f"Connection error (attempt {attempt + 1}/{MAX_RETRIES}): {str(e)}")
+                except json.JSONDecodeError as e:
+                    logging.error(f"Invalid JSON response (attempt {attempt + 1}/{MAX_RETRIES}): {str(e)}")
+                except Exception as e:
+                    logging.error(f"Unexpected error (attempt {attempt + 1}/{MAX_RETRIES}): {str(e)}")
+                
+                if attempt < MAX_RETRIES - 1:
+                    time.sleep(RETRY_DELAY * (attempt + 1))
         
         raise Exception("Failed to connect to AdsPower API after multiple retries")
 
