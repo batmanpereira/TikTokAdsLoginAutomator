@@ -1,0 +1,54 @@
+Preciso criar um script Python para automatizar o login em múltiplas contas do TikTok Ads usando o AdsPower. O script deve ser capaz de ler um arquivo de texto contendo as credenciais das contas (email, senha do email e senha do TikTok) e fazer login automaticamente em cada uma delas.
+
+Requisitos Técnicos
+Sistema local rodando Mac
+AdsPower instalado e em execução (API local na porta 50325)
+Python 3
+Selenium
+Requests
+Navegador Chrome
+Funcionalidades Necessárias
+Ler contas de um arquivo texto no formato:
+Copy
+email1@outlook.com senha_email1 senha_tiktok1
+email2@outlook.com senha_email2 senha_tiktok2
+Para cada conta:Criar um novo perfil no AdsPower automaticamente
+Abrir o navegador através do AdsPower
+Fazer login no TikTok Ads
+Lidar com verificações de email (usando IMAP para Outlook)
+Lidar com captchas (aguardar resolução manual)
+Salvar os IDs dos perfis criados para referência
+Funcionalidades de segurança:Espera entre ações para evitar detecção
+Digitação humanizada (delays entre caracteres)
+Tratamento de erros e timeouts
+Comportamentos Esperados
+Verificação automática de email usando IMAP (Outlook)
+Aguardar resolução manual de captchas quando necessário
+Log detalhado de cada etapa do processo
+Tentativas de retry em caso de falhas
+Salvamento do status de cada conta processada
+Não é necessário
+Interface gráfica
+Banco de dados
+Criptografia de senhas
+Sistema de proxy (usar configuração padrão do AdsPower)
+
+
+O script deve ser o mais simples possível, focando apenas na funcionalidade principal de automação dos logins de contas.
+
+Observações Importantes
+O projeto é para uso pessoal/local, depois de pronto vou fazer o pull localmente
+Não precisa de medidas extras de segurança
+Foco na confiabilidade e simplicidade
+Deve funcionar com o AdsPower em modo multi-login
+
+
+Recursos Extras:
+Documentação de como funciona a API local do Ads Power: https://localapi-doc-en.adspower.com/docs/overview
+Url da API do AdsPower: http://local.adspower.net:50325
+Para quebrar o capcha do TikTokAds vamos utilizar uma API atraves desse sistema https://www.sadcaptcha.com/api/v1/swagger-ui/index.html
+
+
+
+
+Por favor, crie um script Python que atenda a esses requisitos, mantendo o código limpo e bem comentado.
